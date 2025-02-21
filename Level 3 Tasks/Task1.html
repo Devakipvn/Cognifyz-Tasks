@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery and Slideshow</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Image Gallery Styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .modal:target {
+            display: flex;
+        }
+
+        /* Slideshow Styles */
+        .slideshow {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            animation: slide 12s infinite;
+        }
+
+        .slides img {
+            width: 100%;
+            height: auto;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery and Slideshow</h1>
+
+    <!-- Image Gallery -->
+    <div class="gallery">
+        <a href="#img1"><img src="https://plus.unsplash.com/premium_photo-1685086785054-d047cdc0e525?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Thumbnail 1"></a>
+        <a href="#img2"><img src="https://img.freepik.com/free-photo/programming-background-collage_23-2149901789.jpg?semt=ais_hybrid" alt="Thumbnail 2"></a>
+        <a href="#img3"><img src="https://lh4.googleusercontent.com/ZQOjtMceWUdgDND3jJLDB3Y7FJfOfXIQPSqGAKF5YI_r0vz4DkieSdNDyJyQEFZOjEtgnV3LbEdSZL1OjkhUVyaiP68uYFCWtDeK2HdmvYRe7SHogV6KgL2E76pT9mxR_PS-a4Xj" alt="Thumbnail 3"></a>
+    </div>
+
+    <!-- Modal for Enlarged Images -->
+    <div id="img1" class="modal">
+        <img src="https://plus.unsplash.com/premium_photo-1685086785054-d047cdc0e525?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D/600x400" alt="Image 1">
+        /600x400
+    </div>
+    <div id="img2" class="modal">
+        <img src="https://img.freepik.com/free-photo/programming-background-collage_23-2149901789.jpg?semt=ais_hybrid/600x400" alt="Image 2">
+    </div>
+    <div id="img3" class="modal">
+        <img src="https://lh4.googleusercontent.com/ZQOjtMceWUdgDND3jJLDB3Y7FJfOfXIQPSqGAKF5YI_r0vz4DkieSdNDyJyQEFZOjEtgnV3LbEdSZL1OjkhUVyaiP68uYFCWtDeK2HdmvYRe7SHogV6KgL2E76pT9mxR_PS-a4Xj/600x400" alt="Image 3">
+    </div>
+
+    <!-- Image Slideshow -->
+    <div class="slideshow">
+        <div class="slides">
+            <img src="https://plus.unsplash.com/premium_photo-1685086785054-d047cdc0e525?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Slide 1">
+            <img src="https://img.freepik.com/free-photo/programming-background-collage_23-2149901789.jpg?semt=ais_hybrid" alt="Slide 2">
+            <img src="https://lh4.googleusercontent.com/ZQOjtMceWUdgDND3jJLDB3Y7FJfOfXIQPSqGAKF5YI_r0vz4DkieSdNDyJyQEFZOjEtgnV3LbEdSZL1OjkhUVyaiP68uYFCWtDeK2HdmvYRe7SHogV6KgL2E76pT9mxR_PS-a4Xj" alt="Slide 3">
+        </div>
+    </div>
+</body>
+</html>
